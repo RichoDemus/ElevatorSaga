@@ -1,16 +1,18 @@
 {
     idleElevators: [],
+    allElevators: [],
+    allFloors: [],
     init: function(elevators, floors)
     {
-        const iddlare = this.idleElevators;
-        const denna = this;
+        const _this = this;
         elevators.forEach(function(elevator)
         {
+            _this.allElevators.push(elevator);
             elevator.on("idle", function()
             {
                 console.log("Elevator idle...");
-                iddlare.push(elevator);
-                console.log(iddlare.length + " idle elevators");
+                _this.idleElevators.push(elevator);
+                console.log(_this.idleElevators.length + " idle elevators");
             });
             
             elevator.on("floor_button_pressed", function(floorNum)
@@ -21,20 +23,18 @@
         
         floors.forEach(function(floor)
         {
+            _this.allFloors.push(floor);
             floor.on("up_button_pressed", function()
             {
-                denna.elevatorButtonPressed(floor);
+                _this.elevatorButtonPressed(floor);
             });
-        });
-        
-        floors.forEach(function(floor)
-        {
+            
             floor.on("down_button_pressed", function()
             {
-                denna.elevatorButtonPressed(floor);
+                _this.elevatorButtonPressed(floor);
             });
         });
-        
+                
     },
     update: function(dt, elevators, floors)
     {
