@@ -23,7 +23,7 @@
         
         floors.forEach(function(floor)
         {
-            _this.allFloors.push(floor);
+            _this.allFloors[floor.floorNum] = floor;
             floor.on("up_button_pressed", function()
             {
                 _this.elevatorButtonPressed(floor);
@@ -50,6 +50,7 @@
             return;
         }
         elevator.goToFloor(floor.floorNum());
-    }
+    },
+    
 }
 
