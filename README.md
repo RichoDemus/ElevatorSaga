@@ -1,6 +1,6 @@
 # Ellen the Elevator
 
-An elevator AI written for [http://play.elevatorsaga.com/](Elevator Saga)
+An elevator AI written for [Elevator Saga](http://play.elevatorsaga.com/)
 
 ## Info
 The current strategy is to put idle elevators in a list and when a person presses the call elevator button one of the idle elevators are called. This turned out to be pretty bad, so the next plan is 
